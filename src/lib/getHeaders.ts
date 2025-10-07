@@ -1,9 +1,7 @@
 import { isNextApiRequest } from './isNextApiRequest';
 import { HeaderMap } from '@apollo/server';
-import { NextApiRequest } from 'next';
-import { NextRequest } from 'next/server';
 
-const getHeaders = (req: NextApiRequest | NextRequest | Request) => {
+const getHeaders = (req: Request) => {
   const headers = new HeaderMap();
 
   if (isNextApiRequest(req)) {
@@ -17,7 +15,6 @@ const getHeaders = (req: NextApiRequest | NextRequest | Request) => {
       headers.set(key, value);
     });
   }
-
   return headers;
 };
 
