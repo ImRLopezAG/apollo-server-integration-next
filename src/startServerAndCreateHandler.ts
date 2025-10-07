@@ -11,7 +11,7 @@ interface Options<Req extends Request, Context extends BaseContext> {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const defaultContext: ContextFunction<[], any> = async () => ({});
 
-function startServerAndCreateNextHandler<Req extends Request = Request, Context extends BaseContext = object>(
+function startServerAndCreateHandler<Req extends Request = Request, Context extends BaseContext = object>(
   server: ApolloServer<Context>,
   options?: Options<Req, Context>,
 ) {
@@ -56,4 +56,4 @@ function startServerAndCreateNextHandler<Req extends Request = Request, Context 
   return handler;
 }
 
-export { startServerAndCreateNextHandler };
+export { startServerAndCreateHandler };

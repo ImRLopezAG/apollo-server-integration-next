@@ -1,4 +1,4 @@
-import { startServerAndCreateNextHandler } from '../startServerAndCreateNextHandler';
+import { startServerAndCreateHandler } from '../startServerAndCreateHandler';
 import { ApolloServer, ApolloServerOptions, BaseContext } from '@apollo/server';
 import {
   CreateServerForIntegrationTestsOptions,
@@ -36,7 +36,7 @@ describe('nextHandler', () => {
   defineIntegrationTestSuite(
     async (serverOptions: ApolloServerOptions<BaseContext>, testOptions?: CreateServerForIntegrationTestsOptions) => {
       const server = new ApolloServer(serverOptions);
-      const handler = startServerAndCreateNextHandler(server, testOptions);
+      const handler = startServerAndCreateHandler(server, testOptions);
       const apiResolver = await getApiResolver();
 
       const httpServer = createServer((req, res) =>
