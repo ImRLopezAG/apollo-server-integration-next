@@ -68,9 +68,9 @@ function startServerAndCreateHandler<
 		}
     
     // Set response headers
-    const headers: Record<string, string> = {};
+    const headers = new Headers();
     for (const [key, value] of httpGraphQLResponse.headers) {
-      headers[key] = value;
+      headers.set(key, value);
     }
 
     return new Response(
