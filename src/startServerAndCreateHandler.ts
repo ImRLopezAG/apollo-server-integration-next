@@ -63,6 +63,8 @@ function startServerAndCreateHandler<
 				}
 				res.end()
 			}
+
+      return
 		}
     
     // Set response headers
